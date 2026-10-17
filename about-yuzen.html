@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>京友禅・更紗の美 | 京染 泉六</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fcfbf9;
+            --bg-sub: #f7f4f0;
+            --text-main: #333;
+            --accent: #9e2e23;
+            --gold: #c5a059;
+            --font-jp: 'Noto Serif JP', serif;
+            --font-en: 'Cinzel', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 2; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- Header (最新共通) --- */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(252, 251, 249, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 25px; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        nav a:hover { color: var(--accent); }
+
+        /* Contact Dropdown */
+        .contact-wrapper { position: relative; display: inline-block; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-menu {
+            position: absolute; top: 100%; right: 0; width: 260px;
+            background: white; border: 1px solid #eee; padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
+            text-align: left; line-height: 1.5;
+        }
+        .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
+        .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link:hover { color: var(--accent); }
+
+        /* ヒーローエリア */
+        .hero { margin-top: 80px; position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
+        .hero-text { text-align: center; color: #fff; text-shadow: 0 0 15px rgba(0,0,0,0.6); padding: 0 20px; }
+        .hero-text span { font-family: var(--font-en); letter-spacing: 0.3em; font-size: 1.2rem; display: block; }
+        .hero-text h1 { font-size: 2.8rem; margin-top: 10px; line-height: 1.3; }
+
+        .container { max-width: 900px; margin: 0 auto; padding: 100px 40px; }
+
+        /* セクション共通 */
+        section { margin-bottom: 120px; }
+        .section-title { text-align: center; margin-bottom: 60px; }
+        .section-title h2 { font-size: 2.2rem; margin-bottom: 15px; position: relative; display: inline-block; padding-bottom: 15px; }
+        .section-title h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--gold); }
+        .section-title p { color: var(--accent); font-weight: bold; font-size: 1.1rem; letter-spacing: 0.1em; }
+
+        h3 { font-size: 1.6rem; margin: 60px 0 30px; border-left: 5px solid var(--accent); padding-left: 20px; color: var(--text-main); }
+        p { margin-bottom: 25px; text-align: justify; }
+
+        /* 京友禅工程カード */
+        .process-flow { margin-top: 60px; }
+        .process-card { background: #fff; border: 1px solid #eee; margin-bottom: 40px; padding: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .process-header { display: flex; align-items: baseline; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
+        .process-num { font-family: var(--font-en); font-size: 1.8rem; color: var(--accent); font-weight: bold; }
+        .process-name { font-size: 1.3rem; font-weight: bold; }
+        .process-img { width: 100%; margin: 25px 0; border-radius: 2px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+
+        /* 更紗セクション固有 */
+        .kodawari-box { border: 1px solid var(--gold); background: #fdfaf5; padding: 50px; margin-top: 80px; position: relative; }
+        .kodawari-label { background: var(--gold); color: #fff; padding: 5px 20px; position: absolute; top: -15px; left: 30px; font-weight: bold; font-size: 0.9rem; }
+        .final-img { width: 100%; margin-top: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
+        .caption { display: block; text-align: center; font-size: 0.85rem; color: #666; margin-top: 15px; font-style: italic; }
+
+        /* チャンチン染画像資料セクション */
+        .chanchin-doc-section { margin-top: 60px; display: flex; flex-direction: column; gap: 40px; }
+        .chanchin-doc-item { background: #fff; border: 1px solid #e8e4dc; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); text-align: center; }
+        .chanchin-doc-item img { width: 100%; height: auto; display: block; border: 1px solid #eee; }
+
+        /* --- Footer (最新共通) --- */
+        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
+        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
+        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+
+        @media (max-width: 850px) {
+            header { padding: 15px 20px; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.7rem; }
+            .nav-container { gap: 10px; }
+            .hero-text h1 { font-size: 1.8rem; }
+            .container { padding: 60px 20px; }
+            .process-card, .chanchin-doc-item { padding: 15px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><a href="index.html">京染 泉六</a></div>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#concept">Concept</a></li>
+                <li><a href="about-yuzen.html">京友禅・更紗とは</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="artist.html">Artist</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="shop-coming-soon.html">Shop (準備中)</a></li>
+            </ul>
+        </nav>
+        <div class="contact-wrapper">
+            <div class="contact-trigger"><a href="contact.html">CONTACT</a></div>
+            <div class="contact-menu">
+                <p>Instagram</p>
+                <a href="https://www.instagram.com/kyozome_senroku/" target="_blank" class="dropdown-link">@kyozome_senroku</a>
+                <p>Email</p>
+                <a href="mailto:kyozomesenroku@outlook.jp" class="dropdown-link">kyozomesenroku@outlook.jp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="hero">
+    <img src="DSC_4714.jpg" alt="京友禅 彩色">
+    <div class="hero-text">
+        <span>KYOTO TRADITION</span>
+        <h1>京友禅・更紗の世界</h1>
+    </div>
+</div>
+
+<main class="container">
+
+    <section>
+        <div class="section-title">
+            <p>職人技の結晶が生む「染めの総合美術」</p>
+            <h2>京友禅とは</h2>
+        </div>
+        <p>京友禅は、江戸時代の元禄年間、当時京都で人気の高かった扇絵師・宮崎友禅斎によって創始されたといわれています。江戸幕府から出された奢侈（しゃし）禁止令により豪華な刺繍や絞りの着物が禁止された際、それに代わる優美で華やかな染め着物として人々の間で広く親しまれるようになりました。</p>
+        
+        <p><strong>● 雅やかな意匠と多色使い</strong><br>花鳥風月や有職文様など、公家風の伝統的で雅やかな図案が特徴です。加賀友禅とは異なり、決まった基調色を持たず、職人の豊かな色彩感覚によって多種多様な色が鮮やかに使い分けられます。</p>
+        <p><strong>● 豪華な仕上げ（金加工・刺繍）</strong><br>緻密な染めに加え、仕上げに金銀の箔や刺繍を施すことで、より一層華やかな美しさを演出します。これは、古くから刺繍技術が栄えていた京都ならではの技法です。</p>
+        <p><strong>● 分業制が生む最高峰の品質</strong><br>京友禅は、図案から仕上げまで約23もの工程に分かれており、その全てを別々の専門職人が担当する完全分業制で制作されます。各工程の技を極めた一流の職人たちの技術を結集することで、一人では決して到達できない「染めの総合美術」が完成します。</p>
+
+        <h3>京友禅（手描き友禅）ができるまで</h3>
+        <div class="process-flow">
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">01</span><span class="process-name">企画考案（図案）</span></div>
+                <p>模様の配置や色彩のバランスを考え、図案を起こします。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">02</span><span class="process-name">引き染め（下染め）</span></div>
+                <p>色の安定と深みを出すため、最初の下染めを行います。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">03</span><span class="process-name">下絵（絵付け）</span></div>
+                <p>水で落ちる青花液を使い、生地に直接図案を描き写します。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">04</span><span class="process-name">糸目糊（いとめのり）置き</span></div>
+                <img src="20200605_094515-scaled-e1626070642347-768x848.jpg" class="process-img">
+                <p>下絵に沿って糊を置きます。これが堤防の役割を果たし、彩色の際の滲みを防ぎます。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">05</span><span class="process-name">糊伏せ</span></div>
+                <img src="20200604_143858-768x1024.jpg" class="process-img">
+                <p>地色を染める際、柄の部分に色が入らないよう糊で覆います。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">06</span><span class="process-name">引き染め（地染め）</span></div>
+                <img src="20200604_142640-768x1024.jpg" class="process-img">
+                <p>大きな刷毛を使い、ムラが出ないよう均一に地色を染めます。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">07</span><span class="process-name">蒸し</span></div>
+                <img src="20200605_104505-768x576.jpg" class="process-img">
+                <p>約100℃の蒸気で蒸し、地色を定着・発色させます。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">08</span><span class="process-name">水元（友禅流し）</span></div>
+                <img src="20200605_102827-768x1024.jpg" class="process-img">
+                <p>余分な染料や糊を水で洗い落とします。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">09</span><span class="process-name">地入れ</span></div>
+                <p>彩色を均一にするため、ふのりを引いて生地を整えます。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">10</span><span class="process-name">彩色</span></div>
+                <img src="DSC_4714.jpg" class="process-img">
+                <p>糸目糊で囲まれた部分に、筆や刷毛を使って色を挿します。職人の色彩感覚が問われる、京友禅の魂ともいえる工程です。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">11</span><span class="process-name">蒸し・水元</span></div>
+                <p>再び蒸して模様の色を定着させ、余分なものを水で流します。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">12</span><span class="process-name">金加工・刺繍</span></div>
+                <p>染め上がった生地に金銀の箔や刺繍を施し、立体的な輝きを加えます。</p>
+            </div>
+            <div class="process-card">
+                <div class="process-header"><span class="process-num">13</span><span class="process-name">仕立て</span></div>
+                <p>最後に生地幅を整え、縫い上げて完成です。</p>
+            </div>
+        </div>
+
+        <div style="background: #333; color: #fff; padding: 40px; margin-top: 40px; border-radius: 2px;">
+            <p style="margin-bottom: 0;"><strong>染匠（せんしょう）</strong>は、これら全ての工程を統括する総合プロデューサーです。全ての工程を自ら経験し、職人の心を熟知する染匠・栗岡泉六が、最高の技術を指揮して至高の一枚を形にします。</p>
+        </div>
+    </section>
+
+    <section id="sarasa">
+        <div class="section-title">
+            <p>悠久の歴史と異国の情緒が織りなす美</p>
+            <h2>更紗（さらさ）とは</h2>
+        </div>
+
+        <div class="intro-img">
+            <img src="No.4 チャンチン更紗.jpg" alt="チャンチン" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 40px;">
+            <span class="caption">悠久の時を経て完成する、至高の更紗作品</span>
+        </div>
+
+        <p>「更紗」とは、広い意味では木綿の生地に多色を使って文様を染めた工芸技法のことを指します。日本では木綿だけでなく、絹の生地に染めを施すことも一般的です。その異国情緒あふれる緻密な紋様と鮮やかな色彩は、古くから日本の人々を魅了し続けてきました。</p>
+
+        <h3>1. 更紗の起源 ―― 2000年の時を超えて</h3>
+        <p>更紗の歴史は極めて古く、その起こりは2000年以上前の古代インドに遡るとされています。文明が栄えたインダス川流域で、原料となる綿の栽培が行われていたことが始まりです。当初は衣類や寺院の装飾に使われていた更紗は、シルクロードを通って諸外国へ輸出されるようになりました。大航海時代に入ると、ポルトガルの探検家バスコ・ダ・ガマがインド航路を発見したことで、インド更紗はヨーロッパ諸国へも広まり、爆発的な人気を博しました。</p>
+
+        <h3>2. 日本への伝来 ―― 染め文化の革命</h3>
+        <p>日本に更紗が伝わったのは16世紀（安土桃山時代）とされています。それまでの日本には藍やウコンによる染色技術はありましたが、「染めのみで緻密な柄を描き、洗っても退色しない」という更紗の技術は、当時の日本人に大きな衝撃を与えました。これは、鉄やミョウバンといった「媒染剤（ばいせんざい）」を用いて色素と繊維を化学反応で結びつける、当時の日本にはなかった画期的な技法によるものでした。まさに、日本の「染め文化の革命」ともいえる出来事だったのです。</p>
+
+        <h3>3. 日本における更紗 ―― 独自の発展を遂げた「和更紗」</h3>
+        <p>江戸時代になると、依然として高級品であった輸入ものの「古渡り更紗（こわたりさらさ）」に憧れ、それを模した日本製の「和更紗」が各地で作られるようになりました。<br>
+        ● 各地の和更紗: 鍋島更紗、天草更紗、堺更紗、江戸更紗などが有名です。<br>
+        ● 京更紗（堀川更紗）: 京都では、図案起こしから絵付けまでをすべて手描きで行う「手描き更紗」が栄えました。良質な水に恵まれた堀川沿いで発展したことから、別名「堀川更紗」とも呼ばれ、京友禅の重要な技法の一つとして現代に受け継がれています。</p>
+
+        <h3>4. 世界の更紗 ―― 各国の個性が光る多様な美</h3>
+        <p>インドで生まれた更紗は、世界各地でその土地独自の文化と融合し、多様な姿へと進化しました。<br>
+        ● シャム更紗（タイ）: 自国で図案を考案し、インドへ注文して染めさせたのが特徴です。<br>
+        ● ヨーロッパの更紗: イギリスの「チンツ」や、フランス更紗などが生まれました。<br>
+        ● ジャワ更紗（バティック）: インドネシアのジャワ島で独自の技法として確立されたもので、2009年にはユネスコ無形文化遺産にも認定されました。クチャンチンという専用の道具を使い、溶かしたロウで防染する「ろうけつ染め」という高度な技術を要します。</p>
+
+        <div class="kodawari-box">
+            <span class="kodawari-label">泉六のこだわり</span>
+            <p><strong>チャンチン染め 手描き更紗</strong><br>
+            当工房の主宰である栗岡泉六は、このジャワ更紗の技術に深く惚れ込み、京都の感性と融合させた「チャンチン染め 手描き更紗」を手掛けております。チャンチンを用い、一年以上の歳月をかけてロウで柄を描き込み、京都で彩色を施すこの作品は、完成までに約一年半を要します。熟練の職人技が結集した、世界に一点しかない特別な美をお届けいたします。</p>
+            
+            <img src="20200922-YN703603-768x512.jpg" class="final-img" alt="更紗 完成作品">
+            <span class="caption">伝統的な防染道具「チャンチン」</span>
+        </div>
+
+        <!-- チャンチン染資料画像 1〜4 をそのまま1枚ずつ掲載 -->
+        <div class="chanchin-doc-section">
+            <div class="chanchin-doc-item">
+                <img src="チャンチン染1.jpg" alt="チャンチン染 資料1">
+            </div>
+            <div class="chanchin-doc-item">
+                <img src="チャンチン染2.jpg" alt="チャンチン染 資料2">
+            </div>
+            <div class="chanchin-doc-item">
+                <img src="チャンチン染3.jpg" alt="チャンチン染 資料3">
+            </div>
+            <div class="chanchin-doc-item">
+                <img src="チャンチン染4.jpg" alt="チャンチン染 資料4">
+            </div>
+        </div>
+    </section>
+
+</main>
+
+<footer>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about-yuzen.html">京友禅・更紗とは</a>
+        <a href="artist.html">Artist</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop-coming-soon.html">Shop (準備中)</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="copyright">&copy; 2025 Kyozome Senroku. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
