@@ -25,9 +25,6 @@
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { width: 100%; height: auto; display: block; }
 
-        /* 通常（PC）時はスマホ用改行タグを非表示 */
-        .sp-only { display: none; }
-
         /* --- Header --- */
         header {
             position: fixed; top: 0; left: 0; width: 100%; padding: 15px 30px;
@@ -132,9 +129,6 @@
 
         /* スマホ向けメディアクエリ（画面幅850px以下） */
         @media (max-width: 850px) {
-            /* スマホ時のみ指定箇所の改行を有効化 */
-            .sp-only { display: inline; }
-
             header { padding: 12px 20px; flex-wrap: wrap; }
             .logo { font-size: 1.2rem; }
             
@@ -216,8 +210,8 @@
     </section>
     
     <section id="concept" class="concept">
-        <h2>京友禅と更紗、<br class="sp-only">美の融合</h2>
-        <p>古都・京都で培われた「京友禅」の繊細な技巧。<br class="sp-only"></p>
+        <h2>京友禅と更紗、美の融合</h2>
+        <p>古都・京都で培われた「京友禅」の繊細な技巧。</p>
         <p>はるか異国から伝わった「更紗」のエキゾチックな模様。</p>
         <p>京染 泉六・栗岡 泉は、この二つの美を融合させ、<br>独自の感性で「更紗」の新たな世界を表現します。</p>
     </section>
@@ -244,12 +238,12 @@
             <div class="card">
                 <div class="card-img-wrapper"><img src="work2.jpg" alt="No.2 五節句の祈り"></div>
                 <h3>五節句の祈り</h3>
-                <p>日本の四季と行事への祈りを込めた優美な<br>作品。</p>
+                <p>日本の四季と行事への祈りを込めた優美な作品。</p>
             </div>
             <div class="card">
                 <div class="card-img-wrapper"><img src="No.3 カチン更紗.jpg" alt="No.3 カチン更紗"></div>
                 <h3>カチン更紗の粋</h3>
-                <p>墨の濃淡で描く、静寂の中に情熱を秘めた<br>表現。</p>
+                <p>墨の濃淡で描く、静寂の中に情熱を秘めた表現。</p>
             </div>
         </div>
     </section>
