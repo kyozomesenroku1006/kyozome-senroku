@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist | 京染 泉六 - 栗岡 泉</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --bg-color: #fcfbf9;
+            --text-color: #333333;
+            --accent-red: #9e2e23;
+            --gold: #c5a059;
+            --font-main: 'Noto Serif JP', serif;
+            --font-en: 'Cinzel', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.8; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+        img { width: 100%; display: block; }
+
+        /* --- Header (最新共通) --- */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(252, 251, 249, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 25px; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        nav a:hover { color: var(--accent-red); }
+
+        /* Contact Dropdown */
+        .contact-wrapper { position: relative; display: inline-block; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-menu {
+            position: absolute; top: 100%; right: 0; width: 260px;
+            background: white; border: 1px solid #eee; padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
+            text-align: left; line-height: 1.5;
+        }
+        .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
+        .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-color); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link:hover { color: var(--accent-red); }
+
+        /* --- Artist Hero --- */
+        .artist-hero {
+            height: 85vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px; 
+            background: white;
+        }
+        .hero-img { flex: 1.2; height: 100%; }
+        .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+        .hero-text { flex: 1; padding: 0 6%; }
+        .hero-quote {
+            font-size: 1.6rem; font-weight: 700; line-height: 1.6; color: var(--accent-red);
+            margin-bottom: 40px; letter-spacing: 0.05em; position: relative;
+        }
+        .hero-quote::after { content: ""; display: block; width: 60px; height: 3px; background: var(--gold); margin-top: 20px; }
+        .artist-title h1 { font-size: 2.2rem; margin-bottom: 5px; }
+        .artist-title p { color: #666; font-family: var(--font-en); }
+
+        /* --- Philosophy --- */
+        .philosophy { padding: 120px 20px; text-align: center; }
+        .inner { max-width: 800px; margin: 0 auto; }
+        .section-label { font-family: var(--font-en); color: var(--gold); display: block; margin-bottom: 20px; letter-spacing: 0.2em; }
+        .philosophy h2 { font-size: 2rem; margin-bottom: 40px; }
+        .philosophy p { text-align: left; margin-bottom: 25px; font-size: 1.15rem; }
+
+        /* --- Gallery --- */
+        .tech-gallery { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; padding: 0 60px; margin-bottom: 120px; }
+        .tech-gallery img { height: 550px; object-fit: cover; box-shadow: 0 15px 40px rgba(0,0,0,0.1); }
+
+        /* --- Biography --- */
+        .biography { padding: 100px 40px; background: #f4f4f4; }
+        .bio-inner { max-width: 900px; margin: 0 auto; }
+        .history-list { list-style: none; margin-top: 60px; }
+        .history-item { display: flex; border-bottom: 1px solid #ddd; padding: 28px 0; }
+        .year { width: 180px; font-weight: bold; color: var(--accent-red); font-family: var(--font-en); flex-shrink: 0; }
+        .event { flex: 1; font-size: 1.05rem; }
+
+        /* --- Footer (最新共通) --- */
+        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
+        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
+        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+
+        @media (max-width: 850px) {
+            header { padding: 15px 20px; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.7rem; }
+            .nav-container { gap: 10px; }
+            .artist-hero { flex-direction: column; height: auto; padding-bottom: 60px; }
+            .hero-img { width: 100%; height: 450px; }
+            .hero-text { padding: 40px 30px 0; }
+            .hero-quote { font-size: 1.3rem; }
+            .tech-gallery { grid-template-columns: 1fr; padding: 0 20px; }
+            .history-item { flex-direction: column; }
+            .year { margin-bottom: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><a href="index.html">京染 泉六</a></div>
+        <div class="nav-container">
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="index.html#concept">Concept</a></li>
+                    <li><a href="about-yuzen.html">京友禅・更紗とは</a></li>
+                    <li><a href="index.html#collection">Collection</a></li>
+                    <li><a href="artist.html">Artist</a></li>
+                    <li><a href="index.html#news">News</a></li>
+                    <li><a href="shop-coming-soon.html">Shop (準備中)</a></li>
+                </ul>
+            </nav>
+            <div class="contact-wrapper">
+                <div class="contact-trigger"><a href="contact.html">CONTACT</a></div>
+                <div class="contact-menu">
+                    <p>Instagram</p>
+                    <a href="https://www.instagram.com/kyozome_senroku/" target="_blank" class="dropdown-link">@kyozome_senroku</a>
+                    <p>Email</p>
+                    <a href="mailto:kyozomesenroku@outlook.jp" class="dropdown-link">kyozomesenroku@outlook.jp</a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="artist-hero">
+            <div class="hero-img"><img src="DSC_4640.jpg" alt="栗岡 泉"></div>
+            <div class="hero-text">
+                <div class="hero-quote">人には、それぞれに美しき心の想い色がある。<br>色に恋して、色を愛して、美しき色を染め上げる。</div>
+                <div class="artist-title">
+                    <h1>栗岡 泉</h1>
+                    <p>IZUMI KURIOKA</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="philosophy">
+            <div class="inner">
+                <span class="section-label">Philosophy</span>
+                <h2>伝統に恋し、革新を染める</h2>
+                <p>日本大学芸術学部美術学科在学中の友禅染の図案制作をきっかけにこの世界に入る。大学卒業後、元・新匠工芸会 染色家 岩田福次郎氏に師事。</p>
+                <p>後、(株)岡重 創業制作部責任者を経て常務取締役となり、友禅染の技術を生かした斬新なデザインで、ハンドバッグやスカーフ・ショール等を商品化。伝統美と独自の革新を融合させた作品作りを続けています。</p>
+            </div>
+        </section>
+
+        <div class="tech-gallery">
+            <img src="DSC_4700.JPG" alt="制作風景1">
+            <img src="20200605_094515-scaled-e1626070642347-768x848.jpg" alt="制作風景2">
+        </div>
+
+        <section class="biography">
+            <div class="bio-inner">
+                <span class="section-label" style="text-align: center;">Biography</span>
+                <h2 style="text-align: center; font-size: 2rem; margin-bottom: 20px;">経歴・受賞歴</h2>
+                
+                <ul class="history-list">
+                    <li class="history-item">
+                        <div class="year">1956年</div>
+                        <div class="event">兵庫県生れ</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">師事</div>
+                        <div class="event">元・武庫川女子大学教授 示現会 花畑和夫氏に師事<br>日展会友 光風会 坂手得二氏に師事</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">経歴</div>
+                        <div class="event">
+                            日本大学芸術学部美術学科在学中の友禅染の図案制作をきっかけにこの世界に入る。<br>
+                            大学卒業後、元・新匠工芸会 染色家 岩田福次郎氏に師事。<br>
+                            後、(株)岡重 創業制作部責任者を経て常務取締役。友禅染の技術を生かした斬新なデザインで、ハンドバッグやスカーフ・ショール等を商品化。
+                        </div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">現在</div>
+                        <div class="event">「京染泉六」主宰、京都手描友禅協同組合組合員、京都商工会議所染織部会員</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">評価・紹介</div>
+                        <div class="event">ファッション京都推進協議会にて、「幾何学的な美しさが魅力の更紗を描き続ける創作染色家の一人・京都商工会議所の事業である KYOTO PREMIUM にも参画するなど、その高い技術を活かした新しい商品開発にも余念がない」として紹介される。</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">1995〜2010年</div>
+                        <div class="event">日本染色作家協会理事長 5代田畑喜八監修の元、祇園甲部「都をどり」の総をどり衣装制作に携わる。</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2004年</div>
+                        <div class="event">京都商工会議所 「Kyoto Style Cafe」 東京/青山 スパイラルホール〜染・織・繍の新たな提案「トラディショナル＆モダン」〜参加</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2006年</div>
+                        <div class="event">京都商工会議所 会報誌「技に生きる」11月・12月号にて紹介掲載<br>NHK番組 『美の壺』にて制作風景放映</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2012年</div>
+                        <div class="event">テレビ東京 ドラマ水曜ミステリー9「作家探偵・山村美紗シリーズ」主演 浅野ゆう子 衣装監修 着用衣装制作</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2013年</div>
+                        <div class="event">フジテレビ ドラマ 「鴨、京都へ行く。」-老舗旅館の女将日記- 主演 松下奈緒着用衣装制作</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2014年</div>
+                        <div class="event">第六十二回伊勢神宮式年遷宮記念奉納・五穀豊穣纈纈文様卓飾</div>
+                    </li>
+                    <li class="history-item">
+                        <div class="year">2015年</div>
+                        <div class="event">
+                            芸術祭参加 南座特別公演衣装制作<br>
+                            伝統的工芸品 京友禅・京小紋に係る審査員認定<br>
+                            伝統的工芸品検査指定工場登録
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-nav">
+            <a href="index.html">Home</a>
+            <a href="about-yuzen.html">京友禅・更紗とは</a>
+            <a href="artist.html">Artist</a>
+            <a href="contact.html">Contact</a>
+            <a href="shop-coming-soon.html">Shop (準備中)</a>
+            <a href="privacy.html">Privacy Policy</a>
+        </div>
+        <div class="copyright">&copy; 2025 Kyozome Senroku. All Rights Reserved.</div>
+    </footer>
+
+</body>
+</html>
