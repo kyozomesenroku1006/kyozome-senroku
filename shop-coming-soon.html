@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop | 京染 泉六 (準備中)</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fcfbf9;
+            --text-main: #333;
+            --accent: #9e2e23;
+            --gold: #c5a059;
+            --font-jp: 'Noto Serif JP', serif;
+            --font-en: 'Cinzel', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 2; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* Header (共通スタイル) */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(252, 251, 249, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 25px; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        nav a:hover { color: var(--accent); }
+
+        /* Contact Dropdown */
+        .contact-wrapper { position: relative; display: inline-block; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-menu {
+            position: absolute; top: 100%; right: 0; width: 260px;
+            background: white; border: 1px solid #eee; padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
+            text-align: left; line-height: 1.5;
+        }
+        .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
+        .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link:hover { color: var(--accent); }
+
+        /* Content */
+        .container { max-width: 800px; margin: 180px auto 120px; padding: 0 20px; text-align: center; }
+        .section-title span { font-family: var(--font-en); color: var(--gold); letter-spacing: 0.2em; font-size: 1.1rem; }
+        .section-title h1 { font-size: 2.2rem; margin-top: 10px; margin-bottom: 30px; }
+        .message { font-size: 1.1rem; margin-bottom: 40px; color: #555; }
+        .btn { display: inline-block; padding: 12px 35px; border: 1px solid var(--accent); color: var(--accent); letter-spacing: 0.1em; transition: 0.3s; }
+        .btn:hover { background: var(--accent); color: white; }
+
+        /* Footer */
+        footer { background: #222; color: white; text-align: center; padding: 80px 20px; margin-top: 100px; }
+        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
+        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+
+        @media (max-width: 850px) {
+            header { padding: 15px 20px; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.7rem; }
+            .nav-container { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><a href="index.html">京染 泉六</a></div>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#concept">Concept</a></li>
+                <li><a href="about-yuzen.html">京友禅・更紗とは</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="artist.html">Artist</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="shop-coming-soon.html">Shop (準備中)</a></li>
+            </ul>
+        </nav>
+        <div class="contact-wrapper">
+            <div class="contact-trigger"><a href="contact.html">CONTACT</a></div>
+            <div class="contact-menu">
+                <p>Instagram</p>
+                <a href="https://www.instagram.com/kyozome_senroku/" target="_blank" class="dropdown-link">@kyozome_senroku</a>
+                <p>Email</p>
+                <a href="mailto:kyozomesenroku@outlook.jp" class="dropdown-link">kyozomesenroku@outlook.jp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="section-title">
+        <span>ONLINE SHOP</span>
+        <h1>準備中 / Coming Soon</h1>
+    </div>
+    <p class="message">
+        現在、オンラインショップの開設に向けて準備を進めております。<br>
+        オープンまで今しばらくお待ちいただけますようお願い申し上げます。<br><br>
+        作品のご購入や詳細に関するお問い合わせは、<br>
+        ContactページまたはInstagram DMよりお気軽にご連絡ください。
+    </p>
+    <a href="contact.html" class="btn">お問い合わせはこちら</a>
+</main>
+
+<footer>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about-yuzen.html">京友禅・更紗とは</a>
+        <a href="artist.html">Artist</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop-coming-soon.html">Shop (準備中)</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="copyright">&copy; 2025 Kyozome Senroku. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
