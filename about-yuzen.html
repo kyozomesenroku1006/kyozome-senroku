@@ -19,90 +19,94 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 2; overflow-x: hidden; }
+        html, body { width: 100%; overflow-x: hidden; }
+        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 1.9; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* --- Header (最新共通) --- */
+        /* --- Header --- */
         header {
-            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 30px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; background: rgba(252, 251, 249, 0.95);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
-        .nav-container { display: flex; align-items: center; gap: 25px; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        .logo { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 20px; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.05em; }
         nav a:hover { color: var(--accent); }
 
         /* Contact Dropdown */
         .contact-wrapper { position: relative; display: inline-block; }
-        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.8rem; cursor: pointer; }
         .contact-menu {
-            position: absolute; top: 100%; right: 0; width: 260px;
-            background: white; border: 1px solid #eee; padding: 20px;
+            position: absolute; top: 100%; right: 0; width: 240px;
+            background: white; border: 1px solid #eee; padding: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
             text-align: left; line-height: 1.5;
         }
         .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
         .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
-        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link { display: block; font-size: 0.8rem; color: var(--text-main); margin-bottom: 10px; text-decoration: underline; word-break: break-all; }
         .dropdown-link:hover { color: var(--accent); }
 
         /* ヒーローエリア */
-        .hero { margin-top: 80px; position: relative; height: 75vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
+        .hero { margin-top: 70px; position: relative; height: 65vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
         .hero img { position: absolute; width: 100%; height: 100%; object-fit: cover; z-index: -1; }
         .hero-text { text-align: center; color: #fff; text-shadow: 0 0 15px rgba(0,0,0,0.6); padding: 0 20px; }
-        .hero-text span { font-family: var(--font-en); letter-spacing: 0.3em; font-size: 1.2rem; display: block; }
-        .hero-text h1 { font-size: 2.8rem; margin-top: 10px; line-height: 1.3; }
+        .hero-text span { font-family: var(--font-en); letter-spacing: 0.25em; font-size: 1rem; display: block; }
+        .hero-text h1 { font-size: 2.3rem; margin-top: 10px; line-height: 1.3; }
 
-        .container { max-width: 900px; margin: 0 auto; padding: 100px 40px; }
+        .container { max-width: 900px; margin: 0 auto; padding: 80px 20px; }
 
         /* セクション共通 */
-        section { margin-bottom: 120px; }
-        .section-title { text-align: center; margin-bottom: 60px; }
-        .section-title h2 { font-size: 2.2rem; margin-bottom: 15px; position: relative; display: inline-block; padding-bottom: 15px; }
+        section { margin-bottom: 100px; }
+        .section-title { text-align: center; margin-bottom: 50px; }
+        .section-title h2 { font-size: 1.9rem; margin-bottom: 12px; position: relative; display: inline-block; padding-bottom: 12px; }
         .section-title h2::after { content: ""; position: absolute; bottom: 0; left: 0; width: 100%; height: 2px; background: var(--gold); }
-        .section-title p { color: var(--accent); font-weight: bold; font-size: 1.1rem; letter-spacing: 0.1em; }
+        .section-title p { color: var(--accent); font-weight: bold; font-size: 1.05rem; letter-spacing: 0.05em; }
 
-        h3 { font-size: 1.6rem; margin: 60px 0 30px; border-left: 5px solid var(--accent); padding-left: 20px; color: var(--text-main); }
-        p { margin-bottom: 25px; text-align: justify; }
+        h3 { font-size: 1.4rem; margin: 50px 0 25px; border-left: 4px solid var(--accent); padding-left: 15px; color: var(--text-main); }
+        p { margin-bottom: 20px; text-align: justify; font-size: 1.05rem; }
 
         /* 京友禅工程カード */
-        .process-flow { margin-top: 60px; }
-        .process-card { background: #fff; border: 1px solid #eee; margin-bottom: 40px; padding: 35px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
-        .process-header { display: flex; align-items: baseline; gap: 15px; margin-bottom: 20px; border-bottom: 1px solid #f0f0f0; padding-bottom: 10px; }
-        .process-num { font-family: var(--font-en); font-size: 1.8rem; color: var(--accent); font-weight: bold; }
-        .process-name { font-size: 1.3rem; font-weight: bold; }
-        .process-img { width: 100%; margin: 25px 0; border-radius: 2px; box-shadow: 0 8px 20px rgba(0,0,0,0.08); }
+        .process-flow { margin-top: 40px; }
+        .process-card { background: #fff; border: 1px solid #eee; margin-bottom: 30px; padding: 25px; box-shadow: 0 5px 15px rgba(0,0,0,0.03); }
+        .process-header { display: flex; align-items: baseline; gap: 15px; margin-bottom: 15px; border-bottom: 1px solid #f0f0f0; padding-bottom: 8px; }
+        .process-num { font-family: var(--font-en); font-size: 1.5rem; color: var(--accent); font-weight: bold; }
+        .process-name { font-size: 1.2rem; font-weight: bold; }
+        .process-img { width: 100%; margin: 20px 0; border-radius: 2px; box-shadow: 0 5px 15px rgba(0,0,0,0.08); }
 
         /* 更紗セクション固有 */
-        .kodawari-box { border: 1px solid var(--gold); background: #fdfaf5; padding: 50px; margin-top: 80px; position: relative; }
-        .kodawari-label { background: var(--gold); color: #fff; padding: 5px 20px; position: absolute; top: -15px; left: 30px; font-weight: bold; font-size: 0.9rem; }
-        .final-img { width: 100%; margin-top: 40px; box-shadow: 0 15px 40px rgba(0,0,0,0.15); }
-        .caption { display: block; text-align: center; font-size: 0.85rem; color: #666; margin-top: 15px; font-style: italic; }
+        .kodawari-box { border: 1px solid var(--gold); background: #fdfaf5; padding: 35px 25px; margin-top: 60px; position: relative; }
+        .kodawari-label { background: var(--gold); color: #fff; padding: 4px 15px; position: absolute; top: -14px; left: 20px; font-weight: bold; font-size: 0.85rem; }
+        .final-img { width: 100%; margin-top: 30px; box-shadow: 0 10px 30px rgba(0,0,0,0.15); }
+        .caption { display: block; text-align: center; font-size: 0.85rem; color: #666; margin-top: 12px; font-style: italic; }
 
         /* チャンチン染画像資料セクション */
-        .chanchin-doc-section { margin-top: 60px; display: flex; flex-direction: column; gap: 40px; }
-        .chanchin-doc-item { background: #fff; border: 1px solid #e8e4dc; padding: 25px; box-shadow: 0 5px 20px rgba(0,0,0,0.04); text-align: center; }
+        .chanchin-doc-section { margin-top: 40px; display: flex; flex-direction: column; gap: 30px; }
+        .chanchin-doc-item { background: #fff; border: 1px solid #e8e4dc; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.04); text-align: center; }
         .chanchin-doc-item img { width: 100%; height: auto; display: block; border: 1px solid #eee; }
 
-        /* --- Footer (最新共通) --- */
-        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
-        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        /* --- Footer --- */
+        footer { background: #222; color: white; text-align: center; padding: 60px 20px; }
+        footer .footer-nav { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.85rem; opacity: 0.8; }
         footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
-        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+        footer .copyright { font-size: 0.75rem; opacity: 0.5; margin-top: 15px; }
 
         @media (max-width: 850px) {
-            header { padding: 15px 20px; }
+            header { padding: 12px 15px; }
+            .logo { font-size: 1.1rem; }
             nav ul { gap: 10px; }
             nav a { font-size: 0.7rem; }
-            .nav-container { gap: 10px; }
-            .hero-text h1 { font-size: 1.8rem; }
-            .container { padding: 60px 20px; }
-            .process-card, .chanchin-doc-item { padding: 15px; }
+            .nav-container { gap: 8px; }
+            .contact-trigger { font-size: 0.7rem; }
+            .hero-text h1 { font-size: 1.6rem; }
+            .container { padding: 50px 15px; }
+            .process-card, .chanchin-doc-item, .kodawari-box { padding: 20px 15px; }
+            h3 { font-size: 1.25rem; margin: 40px 0 20px; }
         }
     </style>
 </head>
@@ -135,7 +139,7 @@
 </header>
 
 <div class="hero">
-    <img src="DSC_4714.jpg" alt="京友禅 彩色">
+    <img src="DSC_4714.JPG" alt="京友禅 彩色">
     <div class="hero-text">
         <span>KYOTO TRADITION</span>
         <h1>京友禅・更紗の世界</h1>
@@ -200,7 +204,7 @@
             </div>
             <div class="process-card">
                 <div class="process-header"><span class="process-num">10</span><span class="process-name">彩色</span></div>
-                <img src="DSC_4714.jpg" class="process-img">
+                <img src="DSC_4714.JPG" class="process-img">
                 <p>糸目糊で囲まれた部分に、筆や刷毛を使って色を挿します。職人の色彩感覚が問われる、京友禅の魂ともいえる工程です。</p>
             </div>
             <div class="process-card">
@@ -217,8 +221,8 @@
             </div>
         </div>
 
-        <div style="background: #333; color: #fff; padding: 40px; margin-top: 40px; border-radius: 2px;">
-            <p style="margin-bottom: 0;"><strong>染匠（せんしょう）</strong>は、これら全ての工程を統括する総合プロデューサーです。全ての工程を自ら経験し、職人の心を熟知する染匠・栗岡泉六が、最高の技術を指揮して至高の一枚を形にします。</p>
+        <div style="background: #333; color: #fff; padding: 30px 20px; margin-top: 40px; border-radius: 2px; font-size: 1rem; line-height: 1.8;">
+            <p style="margin-bottom: 0;"><strong>染匠（せんしょう）</strong>は、これら全ての工程を統括する総合プロデューサーです。全ての工程を自ら経験し、職人の心を熟知する染匠・栗岡泉が、最高の技術を指揮して至高の一枚を形にします。</p>
         </div>
     </section>
 
@@ -229,7 +233,7 @@
         </div>
 
         <div class="intro-img">
-            <img src="No.4 チャンチン更紗.jpg" alt="チャンチン" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 40px;">
+            <img src="No.4 チャンチン更紗.jpg" alt="チャンチン" style="width: 100%; max-width: 700px; display: block; margin: 0 auto 30px;">
             <span class="caption">悠久の時を経て完成する、至高の更紗作品</span>
         </div>
 
@@ -250,18 +254,17 @@
         <p>インドで生まれた更紗は、世界各地でその土地独自の文化と融合し、多様な姿へと進化しました。<br>
         ● シャム更紗（タイ）: 自国で図案を考案し、インドへ注文して染めさせたのが特徴です。<br>
         ● ヨーロッパの更紗: イギリスの「チンツ」や、フランス更紗などが生まれました。<br>
-        ● ジャワ更紗（バティック）: インドネシアのジャワ島で独自の技法として確立されたもので、2009年にはユネスコ無形文化遺産にも認定されました。クチャンチンという専用の道具を使い、溶かしたロウで防染する「ろうけつ染め」という高度な技術を要します。</p>
+        ● ジャワ更紗（バティック）: インドネシアのジャワ島で独自の技法として確立されたもので、2009年にはユネスコ無形文化遺産にも認定されました。チャンチンという専用の道具を使い、溶かしたロウで防染する「ろうけつ染め」という高度な技術を要します。</p>
 
         <div class="kodawari-box">
             <span class="kodawari-label">泉六のこだわり</span>
             <p><strong>チャンチン染め 手描き更紗</strong><br>
-            当工房の主宰である栗岡泉六は、このジャワ更紗の技術に深く惚れ込み、京都の感性と融合させた「チャンチン染め 手描き更紗」を手掛けております。チャンチンを用い、一年以上の歳月をかけてロウで柄を描き込み、京都で彩色を施すこの作品は、完成までに約一年半を要します。熟練の職人技が結集した、世界に一点しかない特別な美をお届けいたします。</p>
+            当工房の主宰である栗岡泉は、このジャワ更紗の技術に深く惚れ込み、京都の感性と融合させた「チャンチン染め 手描き更紗」を手掛けております。チャンチンを用い、一年以上の歳月をかけてロウで柄を描き込み、京都で彩色を施すこの作品は、完成までに約一年半を要します。熟練の職人技が結集した、世界に一点しかない特別な美をお届けいたします。</p>
             
             <img src="20200922-YN703603-768x512.jpg" class="final-img" alt="更紗 完成作品">
             <span class="caption">伝統的な防染道具「チャンチン」</span>
         </div>
 
-        <!-- チャンチン染資料画像 1〜4 をそのまま1枚ずつ掲載 -->
         <div class="chanchin-doc-section">
             <div class="chanchin-doc-item">
                 <img src="チャンチン染1.jpg" alt="チャンチン染 資料1">
