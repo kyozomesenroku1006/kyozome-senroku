@@ -18,66 +18,71 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 2; overflow-x: hidden; }
+        html, body { width: 100%; overflow-x: hidden; }
+        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 1.9; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
 
-        /* --- Header (最新版) --- */
+        /* --- Header --- */
         header {
-            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 30px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; background: rgba(252, 251, 249, 0.95);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
-        .nav-container { display: flex; align-items: center; gap: 25px; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        .logo { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 20px; }
+        nav ul { display: flex; list-style: none; gap: 20px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.05em; }
         nav a:hover { color: var(--accent); }
 
         /* Contact Dropdown */
         .contact-wrapper { position: relative; display: inline-block; }
-        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.8rem; cursor: pointer; }
         .contact-menu {
-            position: absolute; top: 100%; right: 0; width: 260px;
-            background: white; border: 1px solid #eee; padding: 20px;
+            position: absolute; top: 100%; right: 0; width: 240px;
+            background: white; border: 1px solid #eee; padding: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
             text-align: left; line-height: 1.5;
         }
         .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
         .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
-        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link { display: block; font-size: 0.8rem; color: var(--text-main); margin-bottom: 10px; text-decoration: underline; word-break: break-all; }
         .dropdown-link:hover { color: var(--accent); }
 
         /* --- Main Content --- */
-        .container { max-width: 800px; margin: 150px auto 100px; padding: 0 20px; text-align: center; }
-        .section-title { margin-bottom: 60px; }
-        .section-title span { font-family: var(--font-en); color: var(--gold); letter-spacing: 0.2em; }
-        .section-title h1 { font-size: 2.2rem; margin-top: 10px; }
+        .container { max-width: 800px; margin: 140px auto 100px; padding: 0 20px; text-align: center; }
+        .section-title { margin-bottom: 40px; }
+        .section-title span { font-family: var(--font-en); color: var(--gold); letter-spacing: 0.2em; font-size: 0.95rem; }
+        .section-title h1 { font-size: 2rem; margin-top: 8px; }
 
-        .contact-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
-        .method-card { background: #fff; padding: 40px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
-        .method-card:hover { transform: translateY(-5px); border-color: var(--gold); }
-        .method-card h2 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); }
-        .method-card p { font-size: 0.9rem; margin-bottom: 15px; color: #666; }
-        .method-link { display: block; font-size: 1.1rem; color: var(--text-main); font-weight: bold; word-break: break-all; text-decoration: underline; }
+        .contact-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 25px; margin-top: 40px; text-align: left; }
+        .method-card { background: #fff; padding: 30px 25px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
+        .method-card:hover { transform: translateY(-3px); border-color: var(--gold); }
+        .method-card h2 { font-size: 1.15rem; margin-bottom: 15px; color: var(--accent); }
+        .method-card p { font-size: 0.95rem; margin-bottom: 15px; color: #666; }
+        .method-link { display: block; font-size: 1rem; color: var(--text-main); font-weight: bold; word-break: break-all; text-decoration: underline; }
         .method-link:hover { color: var(--gold); }
 
-        .note { margin-top: 60px; padding: 30px; background: #f7f4f0; font-size: 0.9rem; text-align: left; }
+        .note { margin-top: 50px; padding: 25px 20px; background: #f7f4f0; font-size: 0.9rem; text-align: left; line-height: 1.8; }
         
-        /* --- Footer (最新版) --- */
-        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
-        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        /* --- Footer --- */
+        footer { background: #222; color: white; text-align: center; padding: 60px 20px; }
+        footer .footer-nav { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.85rem; opacity: 0.8; }
         footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
-        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+        footer .copyright { font-size: 0.75rem; opacity: 0.5; margin-top: 15px; }
 
-        @media (max-width: 768px) {
-            .contact-methods { grid-template-columns: 1fr; }
-            header { padding: 15px 20px; }
+        @media (max-width: 850px) {
+            header { padding: 12px 15px; }
+            .logo { font-size: 1.1rem; }
             nav ul { gap: 10px; }
             nav a { font-size: 0.7rem; }
-            .contact-menu { right: -10px; }
+            .nav-container { gap: 8px; }
+            .contact-trigger { font-size: 0.7rem; }
+            .container { margin-top: 100px; padding: 0 15px; }
+            .contact-methods { grid-template-columns: 1fr; }
+            .method-card { padding: 25px 20px; }
         }
     </style>
 </head>
@@ -115,7 +120,7 @@
         <h1>お問い合わせ</h1>
     </div>
 
-    <p>作品に関するお問い合わせは下記の方法にて承っております。</p>
+    <p style="text-align: center;">作品に関するお問い合わせは下記の方法にて承っております。</p>
 
     <div class="contact-methods">
         <div class="method-card">
