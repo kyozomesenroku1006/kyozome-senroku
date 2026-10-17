@@ -20,40 +20,47 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.8; overflow-x: hidden; }
+        html, body { width: 100%; overflow-x: hidden; }
+        body { background-color: var(--bg-color); color: var(--text-color); font-family: var(--font-main); line-height: 1.8; }
         a { text-decoration: none; color: inherit; transition: 0.3s; }
         img { width: 100%; height: auto; display: block; }
 
-        /* --- Header (最新共通) --- */
+        /* 通常（PC）時はスマホ用改行タグを非表示 */
+        .sp-only { display: none; }
+
+        /* --- Header --- */
         header {
-            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            position: fixed; top: 0; left: 0; width: 100%; padding: 15px 30px;
             display: flex; justify-content: space-between; align-items: center;
             z-index: 1000; background: rgba(252, 251, 249, 0.95);
             border-bottom: 1px solid rgba(0,0,0,0.05);
         }
-        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
-        .nav-container { display: flex; align-items: center; gap: 25px; }
-        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
-        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        .logo { font-size: 1.3rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 20px; }
+        nav ul { display: flex; list-style: none; gap: 18px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.8rem; letter-spacing: 0.05em; }
         nav a:hover { color: var(--accent-red); }
 
         /* Contact Dropdown */
         .contact-wrapper { position: relative; display: inline-block; }
-        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.8rem; cursor: pointer; }
         .contact-menu {
-            position: absolute; top: 100%; right: 0; width: 260px;
-            background: white; border: 1px solid #eee; padding: 20px;
+            position: absolute; top: 100%; right: 0; width: 240px;
+            background: white; border: 1px solid #eee; padding: 15px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.1);
             opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
             text-align: left; line-height: 1.5;
         }
         .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
         .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
-        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-color); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link { display: block; font-size: 0.8rem; color: var(--text-color); margin-bottom: 10px; text-decoration: underline; word-break: break-all; }
         .dropdown-link:hover { color: var(--accent-red); }
 
+        /* ハンバーガーメニューボタン（初期は非表示） */
+        .menu-toggle { display: none; background: none; border: none; font-size: 1.5rem; cursor: pointer; color: var(--text-color); }
+
         /* --- Hero Slider --- */
-        .hero { position: relative; height: 100vh; overflow: hidden; background-color: var(--bg-color); }
+        .hero { position: relative; height: 100vh; overflow: hidden; background-color: var(--bg-color); padding-top: 70px; }
         .slide {
             position: absolute; top: 0; left: 0; width: 100%; height: 100%;
             opacity: 0; transition: opacity 2s ease-in-out;
@@ -61,74 +68,113 @@
         }
         .slide.active { opacity: 1; }
         .slide:nth-child(1) { background-image: url('DSC_4714.JPG'); background-size: cover; } 
-        .slide:nth-child(2) { background-image: url('No.5 金更紗.jpg'); background-size: contain; }
-        .slide:nth-child(3) { background-image: url('work2.jpg'); background-size: contain; }
+        .slide:nth-child(2) { background-image: url('No.5 金更紗.jpg'); background-size: contain; background-color: #000; }
+        .slide:nth-child(3) { background-image: url('work2.jpg'); background-size: contain; background-color: #000; }
         .slide:nth-child(4) { background-image: url('DSC_4700.JPG'); background-size: cover; }
-        .slide:nth-child(5) { background-image: url('No.3 カチン更紗.jpg'); background-size: contain; }
-        .slide:nth-child(6) { background-image: url('No.4 チャンチン更紗.jpg'); background-size: contain; }
+        .slide:nth-child(5) { background-image: url('No.3 カチン更紗.jpg'); background-size: contain; background-color: #000; }
+        .slide:nth-child(6) { background-image: url('No.4 チャンチン更紗.jpg'); background-size: contain; background-color: #000; }
 
         .hero-content {
-            position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
-            text-align: center; width: 80%; z-index: 10; color: white;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+            position: absolute; top: 55%; left: 50%; transform: translate(-50%, -50%);
+            text-align: center; width: 90%; z-index: 10; color: white;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.6);
         }
-        .hero-title { font-size: 2.8rem; margin-bottom: 20px; letter-spacing: 0.2em; min-height: 4.5rem; display: flex; align-items: center; justify-content: center; line-height: 1.4; }
+        .hero-title { font-size: 2.2rem; margin-bottom: 20px; letter-spacing: 0.15em; min-height: 4.5rem; display: flex; align-items: center; justify-content: center; line-height: 1.5; }
 
         /* --- Concept --- */
-        .concept { padding: 120px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
-        .concept h2 { font-size: 2.2rem; color: var(--accent-red); margin-bottom: 40px; letter-spacing: 0.1em; }
-        .concept p { margin-bottom: 20px; font-size: 1.15rem; line-height: 2.2; }
+        .concept { padding: 80px 20px; text-align: center; max-width: 900px; margin: 0 auto; }
+        .concept h2 { font-size: 1.8rem; color: var(--accent-red); margin-bottom: 30px; letter-spacing: 0.05em; }
+        .concept p { margin-bottom: 15px; font-size: 1.05rem; line-height: 2; }
 
         /* --- Movie --- */
-        .movie-section { padding: 40px 20px 100px; text-align: center; }
-        .video-container { max-width: 450px; margin: 0 auto; position: relative; padding-bottom: 40%; height: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.15); background: #000; }
+        .movie-section { padding: 20px 20px 80px; text-align: center; }
+        .video-container { max-width: 450px; width: 100%; margin: 0 auto; position: relative; padding-bottom: 56.25%; height: 0; box-shadow: 0 15px 35px rgba(0,0,0,0.15); background: #000; }
         .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: 0; }
 
         /* --- Collection --- */
-        .collection { padding: 80px 40px; }
-        .section-title { text-align: center; font-family: var(--font-en); font-size: 2.5rem; margin-bottom: 60px; }
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; }
+        .collection { padding: 60px 20px; }
+        .section-title { text-align: center; font-family: var(--font-en); font-size: 2.2rem; margin-bottom: 40px; }
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto; }
         .card { background: white; padding: 15px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
-        .card-img-wrapper { height: 400px; overflow: hidden; margin-bottom: 20px; }
+        .card-img-wrapper { height: 350px; overflow: hidden; margin-bottom: 15px; }
         .card img { width: 100%; height: 100%; object-fit: cover; transition: 0.5s; }
-        .card:hover img { transform: scale(1.05); }
+        .card h3 { font-size: 1.2rem; margin-bottom: 8px; }
+        .card p { font-size: 0.95rem; color: #666; }
 
         /* --- Artist --- */
-        .artist { padding: 100px 40px; background-color: #f4f4f4; }
-        .artist-container { max-width: 1100px; margin: 0 auto; }
-        .artist-flex { display: flex; align-items: center; gap: 60px; }
-        .artist-img { flex: 1; max-width: 450px; box-shadow: 15px 15px 0 var(--accent-blue); }
+        .artist { padding: 80px 20px; background-color: #f4f4f4; }
+        .artist-container { max-width: 1000px; margin: 0 auto; }
+        .artist-flex { display: flex; align-items: center; gap: 40px; }
+        .artist-img { flex: 1; max-width: 400px; width: 100%; box-shadow: 10px 10px 0 var(--accent-blue); }
         .artist-info { flex: 1.2; }
-        .artist-name { font-size: 1.8rem; margin-bottom: 10px; font-weight: bold; }
-        .artist-quote { font-style: italic; color: var(--accent-red); margin-bottom: 20px; font-size: 1.1rem; display: block; line-height: 1.8; }
-        .artist-desc { margin-bottom: 35px; font-size: 1.1rem; line-height: 2; }
+        .artist-name { font-size: 1.6rem; margin-bottom: 10px; font-weight: bold; }
+        .artist-quote { font-style: italic; color: var(--accent-red); margin-bottom: 20px; font-size: 1.05rem; display: block; line-height: 1.8; }
+        .artist-desc { margin-bottom: 30px; font-size: 1rem; line-height: 1.9; }
         
-        .btn { display: inline-block; padding: 12px 35px; transition: 0.3s; cursor: pointer; font-family: var(--font-main); letter-spacing: 0.1em; border: 1px solid var(--accent-red); color: var(--accent-red); background: transparent; }
+        .btn { display: inline-block; padding: 12px 30px; transition: 0.3s; cursor: pointer; font-family: var(--font-main); letter-spacing: 0.1em; border: 1px solid var(--accent-red); color: var(--accent-red); background: transparent; font-size: 0.95rem; }
         .btn:hover { background: var(--accent-red); color: white; }
 
         /* --- News --- */
-        .news { padding: 100px 40px; background-color: var(--bg-color); text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
-        .news .section-title { color: var(--accent-red); margin-bottom: 40px; }
-        .news-content { display: flex; align-items: center; justify-content: center; gap: 60px; max-width: 1000px; margin: 0 auto; text-align: left; }
-        .news-img { flex: 0 0 45%; max-width: 450px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
+        .news { padding: 80px 20px; background-color: var(--bg-color); text-align: center; border-top: 1px solid rgba(0,0,0,0.05); }
+        .news .section-title { color: var(--accent-red); margin-bottom: 30px; }
+        .news-content { display: flex; align-items: center; justify-content: center; gap: 40px; max-width: 900px; margin: 0 auto; text-align: left; }
+        .news-img { flex: 0 0 45%; max-width: 400px; width: 100%; box-shadow: 0 10px 25px rgba(0,0,0,0.1); }
         .news-text { flex: 1; }
-        .news-text h3 { font-size: 1.5rem; color: var(--accent-red); margin-bottom: 15px; border-bottom: 2px solid var(--gold); display: inline-block; }
-        .news-text p { font-size: 1.1rem; margin-top: 10px; white-space: nowrap; }
+        .news-text h3 { font-size: 1.3rem; color: var(--accent-red); margin-bottom: 12px; border-bottom: 2px solid var(--gold); display: inline-block; padding-bottom: 4px; }
+        .news-text p { font-size: 1rem; margin-top: 10px; line-height: 1.7; }
 
         /* --- Footer --- */
-        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
-        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
-        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        footer { background: #222; color: white; text-align: center; padding: 60px 20px; }
+        footer .footer-nav { margin-bottom: 25px; display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.85rem; opacity: 0.8; }
         footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
-        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+        footer .copyright { font-size: 0.75rem; opacity: 0.5; margin-top: 15px; }
 
+        /* スマホ向けメディアクエリ（画面幅850px以下） */
         @media (max-width: 850px) {
-            header { padding: 15px 20px; }
-            .hero-title { font-size: 1.8rem; }
-            .artist-flex, .news-content { flex-direction: column; align-items: center; text-align: center; }
-            nav ul { gap: 12px; }
-            nav a { font-size: 0.75rem; }
-            .nav-container { gap: 10px; }
+            /* スマホ時のみ指定箇所の改行を有効化 */
+            .sp-only { display: inline; }
+
+            header { padding: 12px 20px; flex-wrap: wrap; }
+            .logo { font-size: 1.2rem; }
+            
+            /* ハンバーガーボタンを表示 */
+            .menu-toggle { display: block; }
+            
+            /* 通常時はメニューを非表示にし、activeクラスがついたときだけ縦に展開 */
+            .nav-container {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                align-items: flex-start;
+                padding-top: 15px;
+                border-top: 1px solid rgba(0,0,0,0.05);
+                margin-top: 10px;
+            }
+            .nav-container.active { display: flex; }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 12px;
+                width: 100%;
+            }
+            nav a { font-size: 0.9rem; }
+            
+            .contact-wrapper { width: 100%; margin-top: 10px; }
+            .contact-menu { position: static; width: 100%; opacity: 1; visibility: visible; box-shadow: none; border: none; background: #f4f4f4; margin-top: 5px; padding: 10px 15px; }
+
+            .hero-title { font-size: 1.5rem; padding: 0 10px; }
+            .concept { padding: 60px 15px; }
+            .concept h2 { font-size: 1.5rem; }
+            .concept p { font-size: 0.95rem; }
+            .collection { padding: 40px 15px; }
+            .section-title { font-size: 1.8rem; margin-bottom: 30px; }
+            .artist, .news { padding: 60px 15px; }
+            .artist-flex, .news-content { flex-direction: column; align-items: center; text-align: center; gap: 30px; }
+            .artist-img { box-shadow: 8px 8px 0 var(--accent-blue); max-width: 100%; }
+            .news-text { text-align: center; }
+            .news-text p { white-space: normal; }
         }
     </style>
 </head>
@@ -136,7 +182,9 @@
 
     <header>
         <div class="logo"><a href="index.html">京染 泉六</a></div>
-        <div class="nav-container">
+        <!-- スマホ用メニュー開閉ボタン -->
+        <button class="menu-toggle" id="menuToggle">&#9776;</button>
+        <div class="nav-container" id="navContainer">
             <nav>
                 <ul>
                     <li><a href="index.html">Home</a></li>
@@ -168,8 +216,8 @@
     </section>
     
     <section id="concept" class="concept">
-        <h2>京友禅と更紗、美の融合</h2>
-        <p>古都・京都で培われた「京友禅」の繊細な技巧。</p>
+        <h2>京友禅と更紗、<br class="sp-only">美の融合</h2>
+        <p>古都・京都で培われた「京友禅」の繊細な技巧。<br class="sp-only"></p>
         <p>はるか異国から伝わった「更紗」のエキゾチックな模様。</p>
         <p>京染 泉六・栗岡 泉は、この二つの美を融合させ、<br>独自の感性で「更紗」の新たな世界を表現します。</p>
     </section>
@@ -248,6 +296,7 @@
     </footer>
 
     <script>
+        // スライドショーの処理
         const slides = document.querySelectorAll('.slide');
         const heroTitle = document.querySelector('.hero-title');
         let currentSlide = 0;
@@ -269,6 +318,14 @@
 
         updateHeroText(0);
         setInterval(nextSlide, 5000);
+
+        // スマホ用ハンバーガーメニューの開閉処理
+        const menuToggle = document.getElementById('menuToggle');
+        const navContainer = document.getElementById('navContainer');
+
+        menuToggle.addEventListener('click', () => {
+            navContainer.classList.toggle('active');
+        });
     </script>
 </body>
 </html>
