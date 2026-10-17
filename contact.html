@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | 京染 泉六</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;700&family=Noto+Serif+JP:wght@300;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #fcfbf9;
+            --text-main: #333;
+            --accent: #9e2e23;
+            --gold: #c5a059;
+            --font-jp: 'Noto Serif JP', serif;
+            --font-en: 'Cinzel', serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { background: var(--bg-base); color: var(--text-main); font-family: var(--font-jp); line-height: 2; overflow-x: hidden; }
+        a { text-decoration: none; color: inherit; transition: 0.3s; }
+
+        /* --- Header (最新版) --- */
+        header {
+            position: fixed; top: 0; width: 100%; padding: 20px 40px;
+            display: flex; justify-content: space-between; align-items: center;
+            z-index: 1000; background: rgba(252, 251, 249, 0.95);
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+        }
+        .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: 0.1em; }
+        .nav-container { display: flex; align-items: center; gap: 25px; }
+        nav ul { display: flex; list-style: none; gap: 25px; align-items: center; }
+        nav a { font-family: var(--font-en); font-size: 0.85rem; letter-spacing: 0.05em; }
+        nav a:hover { color: var(--accent); }
+
+        /* Contact Dropdown */
+        .contact-wrapper { position: relative; display: inline-block; }
+        .contact-trigger { font-family: var(--font-en); font-size: 0.85rem; cursor: pointer; }
+        .contact-menu {
+            position: absolute; top: 100%; right: 0; width: 260px;
+            background: white; border: 1px solid #eee; padding: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+            opacity: 0; visibility: hidden; transition: 0.3s; margin-top: 10px;
+            text-align: left; line-height: 1.5;
+        }
+        .contact-wrapper:hover .contact-menu { opacity: 1; visibility: visible; }
+        .contact-menu p { font-size: 0.75rem; color: #888; margin-bottom: 4px; }
+        .dropdown-link { display: block; font-size: 0.85rem; color: var(--text-main); margin-bottom: 12px; text-decoration: underline; }
+        .dropdown-link:hover { color: var(--accent); }
+
+        /* --- Main Content --- */
+        .container { max-width: 800px; margin: 150px auto 100px; padding: 0 20px; text-align: center; }
+        .section-title { margin-bottom: 60px; }
+        .section-title span { font-family: var(--font-en); color: var(--gold); letter-spacing: 0.2em; }
+        .section-title h1 { font-size: 2.2rem; margin-top: 10px; }
+
+        .contact-methods { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; margin-top: 50px; }
+        .method-card { background: #fff; padding: 40px; border: 1px solid #eee; box-shadow: 0 5px 15px rgba(0,0,0,0.03); transition: 0.3s; }
+        .method-card:hover { transform: translateY(-5px); border-color: var(--gold); }
+        .method-card h2 { font-size: 1.2rem; margin-bottom: 20px; color: var(--accent); }
+        .method-card p { font-size: 0.9rem; margin-bottom: 15px; color: #666; }
+        .method-link { display: block; font-size: 1.1rem; color: var(--text-main); font-weight: bold; word-break: break-all; text-decoration: underline; }
+        .method-link:hover { color: var(--gold); }
+
+        .note { margin-top: 60px; padding: 30px; background: #f7f4f0; font-size: 0.9rem; text-align: left; }
+        
+        /* --- Footer (最新版) --- */
+        footer { background: #222; color: white; text-align: center; padding: 80px 20px; }
+        footer .footer-nav { margin-bottom: 30px; display: flex; justify-content: center; gap: 25px; flex-wrap: wrap; }
+        footer .footer-nav a { font-size: 0.9rem; opacity: 0.8; }
+        footer .footer-nav a:hover { opacity: 1; color: var(--gold); }
+        footer .copyright { font-size: 0.8rem; opacity: 0.5; margin-top: 20px; }
+
+        @media (max-width: 768px) {
+            .contact-methods { grid-template-columns: 1fr; }
+            header { padding: 15px 20px; }
+            nav ul { gap: 10px; }
+            nav a { font-size: 0.7rem; }
+            .contact-menu { right: -10px; }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="logo"><a href="index.html">京染 泉六</a></div>
+    <div class="nav-container">
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#concept">Concept</a></li>
+                <li><a href="about-yuzen.html">京友禅・更紗とは</a></li>
+                <li><a href="index.html#collection">Collection</a></li>
+                <li><a href="artist.html">Artist</a></li>
+                <li><a href="index.html#news">News</a></li>
+                <li><a href="shop-coming-soon.html">Shop (準備中)</a></li>
+            </ul>
+        </nav>
+        <div class="contact-wrapper">
+            <div class="contact-trigger"><a href="contact.html">CONTACT</a></div>
+            <div class="contact-menu">
+                <p>Instagram</p>
+                <a href="https://www.instagram.com/kyozome_senroku/" target="_blank" class="dropdown-link">@kyozome_senroku</a>
+                <p>Email</p>
+                <a href="mailto:kyozomesenroku@outlook.jp" class="dropdown-link">kyozomesenroku@outlook.jp</a>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+    <div class="section-title">
+        <span>CONTACT</span>
+        <h1>お問い合わせ</h1>
+    </div>
+
+    <p>作品に関するお問い合わせは下記の方法にて承っております。</p>
+
+    <div class="contact-methods">
+        <div class="method-card">
+            <h2>Instagram</h2>
+            <p>最新の作品情報や制作風景も配信しております。DMにてお気軽にご連絡ください。</p>
+            <a href="https://www.instagram.com/kyozome_senroku/" target="_blank" class="method-link">@kyozome_senroku</a>
+        </div>
+        <div class="method-card">
+            <h2>Email</h2>
+            <p>メールでのお問い合わせは下記アドレスまでお願いいたします。</p>
+            <a href="mailto:kyozomesenroku@outlook.jp" class="method-link">kyozomesenroku@outlook.jp</a>
+        </div>
+    </div>
+
+    <div class="note">
+        <p>※お問い合わせ内容によりましては、お返事にお時間をいただく場合がございます。<br>
+        ※数日経過しても返信がない場合は、お手数ですが再度ご連絡いただけますと幸いです。</p>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-nav">
+        <a href="index.html">Home</a>
+        <a href="about-yuzen.html">京友禅・更紗とは</a>
+        <a href="artist.html">Artist</a>
+        <a href="contact.html">Contact</a>
+        <a href="shop-coming-soon.html">Shop (準備中)</a>
+        <a href="privacy.html">Privacy Policy</a>
+    </div>
+    <div class="copyright">&copy; 2025 Kyozome Senroku. All Rights Reserved.</div>
+</footer>
+
+</body>
+</html>
